@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  
+</head>
+
+<body>
+ <div class="login">
+	<h1>Flower Class Prediction</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="text" name="area" placeholder="area" required="required" />
+        <p>No. of BedRooms<br>
+        <input type="radio" id="1" name="bedrooms" value="1">
+        <label for="1">1</label><br>
+        <input type="radio" id="2" name="bedrooms" value="2">
+        <label for="2">2</label><br>
+        <input type="radio" id="3" name="bedrooms" value="3">
+        <label for="3">3</label><br>
+        <input type="radio" id="4" name="bedrooms" value="4">
+        <label for="4">4</label><br>
+        <input type="radio" id="5" name="bedrooms" value="5">
+        <label for="5">5</label><br>
+        <input type="radio" id="6" name="bedrooms" value="6">
+        <label for="6">6</label><br>
+        <input type="radio" id="7" name="bedrooms" value="7">
+        <label for="7">7</label><br>
+        </p>
+        <p>No. of BathRooms<br>
+		<input type="radio" id="1" name="bathrooms" value="1">
+        <label for="1">1</label><br>
+        <input type="radio" id="2" name="bathrooms" value="2">
+        <label for="2">2</label><br>
+        <input type="radio" id="3" name="bathrooms" value="3">
+        <label for="3">3</label><br>
+        <input type="radio" id="4" name="bathrooms" value="4">
+        <label for="4">4</label><br>
+        <input type="radio" id="5" name="bathrooms" value="5">
+        <label for="5">5</label><br>
+        </p>
+        <p>No. of Stories<br>
+		<input type="radio" id="1" name="stories" value="1">
+        <label for="1">1</label><br>
+        <input type="radio" id="2" name="stories" value="2">
+        <label for="2">2</label><br>
+        <input type="radio" id="3" name="stories" value="3">
+        <label for="3">3</label><br>
+        <input type="radio" id="4" name="stories" value="4">
+        <label for="4">4</label><br>
+        <input type="radio" id="5" name="stories" value="5">
+        <label for="5">5</label><br>
+        </p>
+        <p>MainRoad<br>
+        <input type="radio" id="1" name="MainRoad" value="1">
+        <label for="1">Yes</label><br>
+        <input type="radio" id="0" name="MainRoad" value="0">
+        <label for="0">No</label><br>
+        </p>
+        <p>GuestRoom<br>
+        <input type="radio" id="1" name="GuestRoom" value="1">
+        <label for="1">Yes</label><br>
+        <input type="radio" id="0" name="GuestRoom" value="0">
+        <label for="0">No</label><br>
+        </p>
+        <p>Basement<br>
+        <input type="radio" id="1" name="Basement" value="1">
+        <label for="1">Yes</label><br>
+        <input type="radio" id="0" name="Basement" value="0">
+        <label for="0">No</label><br>
+        </p>
+        <p>HotWaterHeating<br>
+        <input type="radio" id="1" name="HotWaterHeating" value="1">
+        <label for="1">Yes</label><br>
+        <input type="radio" id="0" name="HotWaterHeating" value="0">
+        <label for="0">No</label><br>
+        </p>
+        <p>AirConditioning<br>
+        <input type="radio" id="1" name="AirConditioning" value="1">
+        <label for="1">Yes</label><br>
+        <input type="radio" id="0" name="AirConditioning" value="0">
+        <label for="0">No</label><br>
+        </p>
+        <p>Parking<br>
+        <input type="radio" id="1" name="Parking" value="1">
+        <label for="1">1</label><br>
+        <input type="radio" id="2" name="Parking" value="2">
+        <label for="2">2</label><br>
+        <input type="radio" id="3" name="Parking" value="3">
+        <label for="3">3</label><br>
+        <input type="radio" id="4" name="Parking" value="4">
+        <label for="4">4</label><br>
+        <input type="radio" id="5" name="Parking" value="5">
+        <label for="5">5</label><br>
+        </p>
+        <p>PrefArea<br>
+        <input type="radio" id="1" name="PrefArea" value="1">
+        <label for="1">Yes</label><br>
+        <input type="radio" id="0" name="PrefArea" value="0">
+        <label for="0">No</label><br>
+        </p>
+        <p>FurnishingStatus<br>
+        <input type="radio" id="0" name="FurnishingStatus" value="0">
+        <label for="0">Furnished</label><br>
+        <input type="radio" id="1" name="FurnishingStatus" value="1">
+        <label for="1">SemiFurnished</label><br>
+        <input type="radio" id="2" name="FurnishingStatus" value="2">
+        <label for="2">UnFurnished</label><br>
+        </p>
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
