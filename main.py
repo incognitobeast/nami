@@ -6,7 +6,7 @@ ml = pickle.load(open('ml.pkl','rb'))
 @app.route('/')
 def index():
     return render_template('index.html')
-@app.route('/predict',methods=['GET','POST'])
+@app.route('/predict',methods=['POST'])
 def predict():
     try:
         features = [float(x) for x in request.form.values()]
